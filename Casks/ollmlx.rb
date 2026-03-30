@@ -1,6 +1,6 @@
 cask "ollmlx" do
   version "0.1.0"
-  sha256 "7222a08d18b160d568d08540fd22206b9eade7d541053a9cc3def5e0bf761fcf"
+  sha256 "93430f984b3c8c0bd023c70a452a9ea5ad6027a4286fd5d80d056a5e72ff0d00"
 
   url "https://github.com/darrylmorley/ollmlx/releases/download/v#{version}/ollmlx-#{version}.dmg"
   name "ollmlx"
@@ -11,17 +11,7 @@ cask "ollmlx" do
   depends_on arch: :arm64
 
   app "ollmlx.app"
-
-  shimscript = "#{staged_path}/ollmlx.sh"
-
-  preflight do
-    File.write shimscript, <<~EOS
-      #!/bin/sh
-      exec "/Applications/ollmlx.app/Contents/MacOS/ollmlx" "$@"
-    EOS
-  end
-
-  binary shimscript, target: "ollmlx"
+  binary "#{appdir}/ollmlx.app/Contents/MacOS/ollmlx-cli", target: "ollmlx"
 
   zap trash: [
     "~/.ollmlx",
