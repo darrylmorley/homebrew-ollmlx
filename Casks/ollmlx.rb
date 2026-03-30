@@ -12,7 +12,16 @@ cask "ollmlx" do
 
   app "ollmlx.app"
 
-  binary "#{appdir}/ollmlx.app/Contents/MacOS/ollmlx"
+  shimscript = "#{staged_path}/ollmlx.sh"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/sh
+      exec "/Applications/ollmlx.app/Contents/MacOS/ollmlx" "$@"
+    EOS
+  end
+
+  binary shimscript, target: "ollmlx"
 
   zap trash: [
     "~/.ollmlx",
