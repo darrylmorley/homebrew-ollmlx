@@ -1,6 +1,6 @@
 cask "ollmlx" do
   version "0.1.0"
-  sha256 "817026e8412d911ba017968ee6394da10b8182db78aa9390323132d73ee912e9"
+  sha256 "7222a08d18b160d568d08540fd22206b9eade7d541053a9cc3def5e0bf761fcf"
 
   url "https://github.com/darrylmorley/ollmlx/releases/download/v#{version}/ollmlx-#{version}.dmg"
   name "ollmlx"
@@ -10,9 +10,9 @@ cask "ollmlx" do
   depends_on macos: ">= :sonoma"
   depends_on arch: :arm64
 
-  app "OllmlxApp.app"
+  app "ollmlx.app"
 
-  binary "#{appdir}/OllmlxApp.app/Contents/MacOS/OllmlxApp", target: "ollmlx"
+  binary "#{appdir}/ollmlx.app/Contents/MacOS/ollmlx"
 
   zap trash: [
     "~/.ollmlx",
