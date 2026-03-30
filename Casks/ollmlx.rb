@@ -1,6 +1,6 @@
 cask "ollmlx" do
   version "0.1.0"
-  sha256 "e36d7662369e27dff525fadbd3350a4549f05f82f57d500d393762ac60b4b5de"
+  sha256 "9d7c99954288c2da70ec3563ec72dd65b384a049eff2d4aff7bcd5943f70b762"
 
   url "https://github.com/darrylmorley/ollmlx/releases/download/v#{version}/ollmlx-#{version}.dmg"
   name "ollmlx"
